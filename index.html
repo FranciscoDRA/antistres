@@ -1,227 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RelaxaLAB - Laboratorio Digital Antiestrés</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RelaxaLAB</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-theme="zen">
-    <!-- Header y Navegación -->
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">
-                <span class="logo-icon">🧪</span>
-                RelaxaLAB
-            </h1>
-            <nav class="nav">
-                <button class="nav-btn" data-module="bubbles" aria-label="Módulo de burbujas">
-                    <span class="nav-icon">🫧</span>
-                    <span class="nav-text">Burbujas</span>
-                </button>
-                <button class="nav-btn" data-module="breathing" aria-label="Módulo de respiración">
-                    <span class="nav-icon">🌀</span>
-                    <span class="nav-text">Respiración</span>
-                </button>
-                <button class="nav-btn" data-module="cubes" aria-label="Módulo de cubos">
-                    <span class="nav-icon">🧊</span>
-                    <span class="nav-text">Cubos</span>
-                </button>
-                <button class="nav-btn" data-module="spinner" aria-label="Módulo spinner">
-                    <span class="nav-icon">🔄</span>
-                    <span class="nav-text">Spinner</span>
-                </button>
-                <button class="nav-btn" data-module="bubblewrap" aria-label="Módulo bubble wrap">
-                    <span class="nav-icon">🎈</span>
-                    <span class="nav-text">Bubble Wrap</span>
-                </button>
-                <button class="settings-btn" aria-label="Configuración">
-                    <span class="nav-icon">🎛️</span>
-                </button>
-            </nav>
-        </div>
-    </header>
+<body>
+  <header>
+    <h1>RelaxaLAB</h1>
+    <nav>
+      <button class="nav-btn active" data-module="bubbles">Burbujas</button>
+      <button class="nav-btn" data-module="breathing">Respiración</button>
+      <button class="nav-btn" data-module="cubes">Cubos</button>
+      <button class="nav-btn" data-module="spinner">Spinner</button>
+      <button class="nav-btn" data-module="bubblewrap">Bubble Wrap</button>
+      <button class="settings-btn">⚙</button>
+    </nav>
+  </header>
 
-    <!-- Contenedor Principal -->
-    <main class="main-content">
-        <!-- Módulo de Burbujas -->
-        <section id="bubbles-module" class="module active" aria-label="Módulo de burbujas antiestrés">
-            <div class="module-header">
-                <h2>🫧 Burbujas Relajantes</h2>
-                <p>Haz clic en las burbujas para relajarte. Escucha el sonido satisfactorio.</p>
-            </div>
-            <div class="bubbles-container" id="bubblesContainer">
-                <div class="bubble-controls">
-                    <button class="control-btn" id="addBubble" aria-label="Agregar más burbujas">
-                        Más Burbujas ✨
-                    </button>
-                    <button class="control-btn" id="clearBubbles" aria-label="Limpiar burbujas">
-                        Limpiar 🧹
-                    </button>
-                </div>
-            </div>
-        </section>
+  <main>
+    <section id="bubbles-module" class="module active"></section>
+    <section id="breathing-module" class="module"></section>
+    <section id="cubes-module" class="module"></section>
+    <section id="spinner-module" class="module"></section>
+    <section id="bubblewrap-module" class="module"></section>
+  </main>
 
-        <!-- Módulo de Respiración -->
-        <section id="breathing-module" class="module" aria-label="Módulo de respiración guiada">
-            <div class="module-header">
-                <h2>🌀 Respiración Guiada</h2>
-                <p>Sigue el ritmo del círculo para una respiración relajante.</p>
-            </div>
-            <div class="breathing-container">
-                <div class="breathing-controls">
-                    <button class="duration-btn active" data-duration="30">30s</button>
-                    <button class="duration-btn" data-duration="60">1 min</button>
-                    <button class="duration-btn" data-duration="120">2 min</button>
-                </div>
-                <div class="breathing-circle-container">
-                    <div class="breathing-circle" id="breathingCircle">
-                        <div class="breathing-text" id="breathingText">Comienza</div>
-                    </div>
-                </div>
-                <button class="control-btn" id="startBreathing">Comenzar Respiración</button>
-            </div>
-        </section>
+  <aside id="settingsPanel" class="settings-panel">
+    <!-- Configuración aquí -->
+  </aside>
 
-        <!-- Módulo de Cubos -->
-        <section id="cubes-module" class="module" aria-label="Módulo de cubos que caen">
-            <div class="module-header">
-                <h2>🧊 Cubos Relajantes</h2>
-                <p>Arrastra y suelta cubos. Observa cómo caen y rebotan suavemente.</p>
-            </div>
-            <div class="cubes-container" id="cubesContainer">
-                <div class="cube-spawn-area" id="cubeSpawnArea">
-                    <p>Haz clic aquí para crear cubos</p>
-                </div>
-                <div class="cubes-playground" id="cubesPlayground"></div>
-            </div>
-        </section>
+  <!-- Scripts cargados al final del body -->
+  <script>
+    console.log('Iniciando carga de scripts...');
+  </script>
 
-        <!-- Módulo Spinner -->
-        <section id="spinner-module" class="module" aria-label="Módulo spinner interactivo">
-            <div class="module-header">
-                <h2>🔄 Spinner Zen</h2>
-                <p>Gira el spinner para liberar tensión. Cada giro trae calma.</p>
-            </div>
-            <div class="spinner-container">
-                <div class="spinner-3d" id="spinner3d">
-                    <div class="spinner-face front"></div>
-                    <div class="spinner-face back"></div>
-                    <div class="spinner-face right"></div>
-                    <div class="spinner-face left"></div>
-                    <div class="spinner-face top"></div>
-                    <div class="spinner-face bottom"></div>
-                </div>
-                <div class="spinner-controls">
-                    <button class="control-btn" id="spinButton">Girar ↻</button>
-                    <button class="control-btn" id="randomSpin">Giro Aleatorio 🎲</button>
-                </div>
-            </div>
-        </section>
+  <script src="audio.js" defer></script>
+  <script src="bubbles.js" defer></script>
+  <script src="breathing.js" defer></script>
+  <script src="cubes.js" defer></script>
+  <script src="spinner.js" defer></script>
+  <script src="bubblewrap_simple.js" defer></script>
+  <script src="settings.js" defer></script>
+  <script src="app_simple.js" defer></script>
 
-        <!-- Módulo Bubble Wrap Digital -->
-        <section id="bubblewrap-module" class="module" aria-label="Módulo bubble wrap digital">
-            <div class="module-header">
-                <h2>🎈 Bubble Wrap Digital</h2>
-                <p>Explota las burbujas del plástico virtual. ¡Infinitamente satisfactorio!</p>
-            </div>
-            <div class="bubblewrap-container" id="bubblewrapContainer">
-                <div class="bubblewrap-controls">
-                    <button class="control-btn" id="resetBubbleWrap" aria-label="Reiniciar bubble wrap">
-                        Reiniciar 🔄
-                    </button>
-                    <button class="control-btn" id="popAllBubbles" aria-label="Explotar todas las burbujas">
-                        Explotar Todas 💥
-                    </button>
-                    <div class="progress-info">
-                        <span id="bubblesLeft">0</span> burbujas restantes
-                    </div>
-                </div>
-                <div class="bubblewrap-grid" id="bubblewrapGrid">
-                    <!-- Las burbujas se generan dinámicamente aquí -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Panel de Configuración -->
-    <aside class="settings-panel" id="settingsPanel" aria-label="Panel de configuración">
-        <div class="settings-content">
-            <div class="settings-header">
-                <h3>🎛️ Configuración</h3>
-                <button class="close-settings" id="closeSettings" aria-label="Cerrar configuración">×</button>
-            </div>
-            
-            <div class="settings-section">
-                <h4>🎨 Tema Visual</h4>
-                <div class="theme-selector">
-                    <button class="theme-btn active" data-theme="zen">Zen</button>
-                    <button class="theme-btn" data-theme="dark">Oscuro</button>
-                    <button class="theme-btn" data-theme="viking">Vikingo</button>
-                    <button class="theme-btn" data-theme="kawaii">Kawaii</button>
-                </div>
-            </div>
-
-            <div class="settings-section">
-                <h4>🔊 Sonidos Ambiente</h4>
-                <div class="sound-selector">
-                    <button class="sound-btn active" data-sound="water">Agua 💧</button>
-                    <button class="sound-btn" data-sound="wind">Viento 🌬️</button>
-                    <button class="sound-btn" data-sound="wood">Madera 🪵</button>
-                    <button class="sound-btn" data-sound="silence">Silencio 🔇</button>
-                </div>
-            </div>
-
-            <div class="settings-section">
-                <h4>♿ Accesibilidad</h4>
-                <label class="toggle-label">
-                    <input type="checkbox" id="reduceMotion">
-                    <span class="toggle-slider"></span>
-                    Reducir animaciones
-                </label>
-                <label class="toggle-label">
-                    <input type="checkbox" id="enableSounds" checked>
-                    <span class="toggle-slider"></span>
-                    Habilitar sonidos
-                </label>
-            </div>
-
-            <div class="settings-section">
-                <h4>💾 Datos</h4>
-                <button class="control-btn" id="exportConfig">Exportar Configuración</button>
-                <button class="control-btn" id="resetConfig">Restaurar Por Defecto</button>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Overlay para efectos de fondo -->
-<!-- Consola: inicio de carga -->
-<script>
-  console.log('Iniciando carga de scripts...');
-</script>
-
-<!-- Carga de clases y módulos -->
-<script src="audio.js" defer></script>
-<script src="bubbles.js" defer></script>
-<script src="breathing.js" defer></script>
-<script src="cubes.js" defer></script>
-<script src="spinner.js" defer></script>
-<script src="bubblewrap_simple.js" defer></script>
-<script src="settings.js" defer></script>
-
-<!-- App principal (último) -->
-<script src="app_simple.js" defer></script>
-
-<!-- Consola: confirmación -->
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    console.log('✅ Todos los scripts fueron cargados y el DOM está listo');
-  });
-</script>
-
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log('✅ Todos los scripts fueron cargados y el DOM está listo');
+    });
+  </script>
 </body>
 </html>
-
