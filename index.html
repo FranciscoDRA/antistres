@@ -21,10 +21,23 @@
 
   <main>
     <section id="bubbles-module" class="module active"></section>
+
     <section id="breathing-module" class="module"></section>
+
     <section id="cubes-module" class="module"></section>
+
     <section id="spinner-module" class="module"></section>
-    <section id="bubblewrap-module" class="module"></section>
+
+    <section id="bubblewrap-module" class="module">
+      <div id="bubblewrapContainer">
+        <div class="bubblewrap-controls">
+          <button id="resetBubbleWrap">🔁 Reiniciar</button>
+          <button id="popAllBubbles">💥 Explotar Todas</button>
+          <span>Burbujas restantes: <span id="bubblesLeft">0</span></span>
+        </div>
+        <div id="bubblewrapGrid" class="bubblewrap-grid"></div>
+      </div>
+    </section>
   </main>
 
   <aside id="settingsPanel" class="settings-panel">
