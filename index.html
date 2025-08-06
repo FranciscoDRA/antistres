@@ -198,22 +198,30 @@
     </aside>
 
     <!-- Overlay para efectos de fondo -->
-    <div class="background-overlay" id="backgroundOverlay"></div>
+<!-- Consola: inicio de carga -->
+<script>
+  console.log('Iniciando carga de scripts...');
+</script>
 
-    <!-- Scripts de Audio (Web Audio API) -->
-    <script>
-        console.log('Iniciando carga de scripts...');
-    </script>
-    <script src="audio.js" defer></script>
-    <script src="bubbles.js" defer></script>
-    <script src="breathing.js" defer></script>
-    <script src="cubes.js" defer></script>
-    <script src="spinner.js" defer></script>
-    <script src="bubblewrap_simple.js" defer></script>
-    <script src="settings.js" defer></script>
-    <script src="app_simple.js" defer></script>
-    <script>
-        console.log('Scripts cargados');
-    </script>
+<!-- Carga de clases y módulos -->
+<script src="audio.js" defer></script>
+<script src="bubbles.js" defer></script>
+<script src="breathing.js" defer></script>
+<script src="cubes.js" defer></script>
+<script src="spinner.js" defer></script>
+<script src="bubblewrap_simple.js" defer></script>
+<script src="settings.js" defer></script>
+
+<!-- App principal (último) -->
+<script src="app_simple.js" defer></script>
+
+<!-- Consola: confirmación -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    console.log('✅ Todos los scripts fueron cargados y el DOM está listo');
+  });
+</script>
+
 </body>
 </html>
+
