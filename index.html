@@ -20,20 +20,29 @@
   </header>
 
   <main>
-    <section id="bubbles-module" class="module active"></section>
+    <section id="bubbles-module" class="module active">
+      <!-- Aquí irá el módulo de burbujas -->
+    </section>
 
-    <section id="breathing-module" class="module"></section>
+    <section id="breathing-module" class="module">
+      <!-- Aquí irá el módulo de respiración -->
+    </section>
 
-    <section id="cubes-module" class="module"></section>
+    <section id="cubes-module" class="module">
+      <!-- Aquí irá el módulo de cubos -->
+    </section>
 
-    <section id="spinner-module" class="module"></section>
+    <section id="spinner-module" class="module">
+      <!-- Aquí irá el spinner -->
+    </section>
 
     <section id="bubblewrap-module" class="module">
+      <!-- ✅ CONTENIDO QUE FALTABA -->
       <div id="bubblewrapContainer">
         <div class="bubblewrap-controls">
-          <button id="resetBubbleWrap">🔁 Reiniciar</button>
-          <button id="popAllBubbles">💥 Explotar Todas</button>
-          <span>Burbujas restantes: <span id="bubblesLeft">0</span></span>
+          <button id="resetBubbleWrap">🔄 Reiniciar</button>
+          <button id="popAllBubbles">💥 Explotar todas</button>
+          <span>💡 Burbujas restantes: <span id="bubblesLeft">0</span></span>
         </div>
         <div id="bubblewrapGrid" class="bubblewrap-grid"></div>
       </div>
@@ -44,11 +53,8 @@
     <!-- Configuración aquí -->
   </aside>
 
-  <!-- Scripts cargados al final del body -->
-  <script>
-    console.log('Iniciando carga de scripts...');
-  </script>
-
+  <!-- Scripts -->
+  <script>console.log('Iniciando carga de scripts...');</script>
   <script src="audio.js" defer></script>
   <script src="bubbles.js" defer></script>
   <script src="breathing.js" defer></script>
@@ -57,7 +63,6 @@
   <script src="bubblewrap_simple.js" defer></script>
   <script src="settings.js" defer></script>
   <script src="app_simple.js" defer></script>
-
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       console.log('✅ Todos los scripts fueron cargados y el DOM está listo');
