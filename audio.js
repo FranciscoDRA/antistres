@@ -427,4 +427,6 @@ class AudioManager {
 }
 
 // Exportar instancia global
-window.audioManager = new AudioManager();
+window.AudioManager = AudioManager;
+
+
