@@ -70,7 +70,7 @@ class BubbleWrapModule {
         const containerWidth = this.container.clientWidth;
         const bubbleSize = 30;
         const gap = 3;
-        const cols = Math.floor((containerWidth - 40) / (bubbleSize + gap));
+        const cols = Math.max(1, Math.floor((containerWidth - 40) / (bubbleSize + gap)));
         const rows = Math.ceil(this.totalBubbles / cols);
         
         this.grid.style.gridTemplateColumns = `repeat(${cols}, ${bubbleSize}px)`;
@@ -128,9 +128,12 @@ class BubbleWrapModule {
         this.poppedCount++;
         this.updateCounter();
         
-        // Sonido
-        if (this.audioManager) {
-            this.audioManager.playBubbleWrapPop();
+        // FIX: usar playSound del AudioManager existente
+        if (this.audioManager && typeof this.audioManager.playSound === 'function') {
+            this.audioManager.playSound('bubbleWrapPop', { volume: 0.4, pitch: 1 });
+        } else if (window.audioManager?.playSound) {
+            // fallback por si pasaron null y existe el global
+            window.audioManager.playSound('bubbleWrapPop', { volume: 0.4, pitch: 1 });
         }
         
         // Efecto visual
@@ -139,6 +142,7 @@ class BubbleWrapModule {
         // Verificar si todas están explotadas
         if (this.poppedCount >= this.totalBubbles) {
             setTimeout(() => {
+                // Aquí puedes reemplazar alert por un mensaje bonito on-screen
                 alert('¡Todas las burbujas explotadas! 🎉');
                 this.resetBubbleWrap();
             }, 500);
@@ -233,33 +237,3 @@ class BubbleWrapModule {
 
 // No crear instancia automáticamente, dejar que app.js la maneje
 console.log('bubblewrap_simple.js cargado');
-
-// ...dentro de popBubble()
-popBubble(bubble) {
-    if (bubble.dataset.popped === 'true') return;
-    
-    bubble.dataset.popped = 'true';
-    bubble.style.background = 'rgba(200,200,200,0.3)';
-    bubble.style.transform = 'scale(0.9)';
-    bubble.style.cursor = 'default';
-    bubble.style.boxShadow = 'inset 0 0 5px rgba(0,0,0,0.3)';
-    
-    this.poppedCount++;
-    this.updateCounter();
-    
-    // Sonido: usa playSound del AudioManager compatible
-    if (this.audioManager && typeof this.audioManager.playSound === 'function') {
-        this.audioManager.playSound('bubbleWrapPop', { volume: 0.4, pitch: 1 });
-    }
-    
-    // Efecto visual
-    this.createPopEffect(bubble);
-    
-    // Verificar si todas están explotadas
-    if (this.poppedCount >= this.totalBubbles) {
-        setTimeout(() => {
-            alert('¡Todas las burbujas explotadas! 🎉');
-            this.resetBubbleWrap();
-        }, 500);
-    }
-}
