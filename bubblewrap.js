@@ -195,3 +195,33 @@ class BubbleWrapModule {
 
 // Exportar
 window.BubbleWrapModule = BubbleWrapModule;
+
+// ...dentro de popBubble()
+popBubble(bubble) {
+    if (bubble.dataset.popped === 'true') return;
+    
+    bubble.dataset.popped = 'true';
+    bubble.style.background = 'rgba(200,200,200,0.3)';
+    bubble.style.transform = 'scale(0.9)';
+    bubble.style.cursor = 'default';
+    bubble.style.boxShadow = 'inset 0 0 5px rgba(0,0,0,0.3)';
+    
+    this.poppedCount++;
+    this.updateCounter();
+    
+    // Sonido: usa playSound del AudioManager compatible
+    if (this.audioManager && typeof this.audioManager.playSound === 'function') {
+        this.audioManager.playSound('bubbleWrapPop', { volume: 0.4, pitch: 1 });
+    }
+    
+    // Efecto visual
+    this.createPopEffect(bubble);
+    
+    // Verificar si todas están explotadas
+    if (this.poppedCount >= this.totalBubbles) {
+        setTimeout(() => {
+            alert('¡Todas las burbujas explotadas! 🎉');
+            this.resetBubbleWrap();
+        }, 500);
+    }
+}
